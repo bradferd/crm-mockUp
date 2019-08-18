@@ -1,0 +1,25 @@
+{
+  "targets": [
+    {
+      "status": "Researching",
+      "companyInfo": "test",
+      "contacts": [],
+      "financialPerformance": "test",
+      "id": 1
+    },
+    {
+      "status": "Approved",
+      "companyInfo": "test",
+      "contacts": [],
+      "financialPerformance": "test",
+      "id": 2
+    },
+    {
+      "status": "Researching",
+      "companyInfo": "Test",
+      "contacts": [],
+      "financialPerformance": "Test",
+      "id": 3
+    }
+  ]
+}
