@@ -8,9 +8,10 @@ export default class NewTarget extends Component {
 		newTarget: {
 			status: '',
 			companyInfo: '',
-			contacts: [],
+			contacts: [{ name: '' }],
 			financialPerformance: ''
 		},
+		name: '',
 		redirectToTargetList: false
 	}
 
@@ -18,6 +19,22 @@ export default class NewTarget extends Component {
 		const copyTarget = { ...this.state.newTarget }
 		copyTarget[e.target.name] = e.target.value
 		this.setState({ newTarget: copyTarget })
+	}
+
+	handleContactNameChange = index => e => {
+		const newContact = this.state.newTarget.contacts.map((contact, cindex) => {
+			console.log(e.target)
+			if (index !== cindex) return contact
+			return { ...contact, name: e.target.value }
+		})
+
+		this.setState({ contacts: newContact })
+	}
+
+	addContact = () => {
+		this.setState({
+			contacts: this.state.shareholders.concat([{ name: '' }])
+		})
 	}
 
 	handleSubmit = async e => {
@@ -35,7 +52,8 @@ export default class NewTarget extends Component {
 				<Form
 					handleSubmit={this.handleSubmit}
 					handleInputChange={this.handleInputChange}
-					handleContactInfoChange={this.handleContactInfoChange}
+					handleContactNameChange={this.handleContactNameChange}
+					addContact={this.addContact}
 					status={this.state.newTarget.status}
 					companyInfo={this.state.newTarget.companyInfo}
 					contacts={this.state.newTarget.contacts}

@@ -26,18 +26,49 @@ export default class TargetList extends Component {
 	render() {
 		let targets = this.state.targets.map(target => {
 			return (
-				<div>
-					<h1>{target.status}</h1>
-					<h3>{target.companyInfo}</h3>
-					<h4>{target.financialPerformance}</h4>
-				</div>
+				<tr key={target.id}>
+					<td className='collapsing'>
+						<a>
+							<i className='edit icon' />
+						</a>
+					</td>
+					<td data-label='status'>{target.status}</td>
+					<td data-label='companyInfo'>{target.companyInfo}</td>
+					<td data-label='contacts'>{target.contacts}</td>
+					<td data-label='financialPerformance'>
+						{target.financialPerformance}
+					</td>
+				</tr>
 			)
 		})
 		return (
-			<div>
+			<div className='ui container'>
 				<h1>This is the target list component</h1>
-				<div>{targets}</div>
-				<button onClick={this.toggleNewTargetForm}>Add New Target</button>
+				<table className='ui compact celled definition table'>
+					<thead>
+						<tr>
+							<th />
+							<th>Status</th>
+							<th>Company Info</th>
+							<th>Contacts</th>
+							<th>Financial Peformance</th>
+						</tr>
+					</thead>
+					<tbody>{targets}</tbody>
+					<tfoot className='full width'>
+						<tr>
+							<th />
+							<th colSpan='4'>
+								<button
+									className='ui right floated small button primary'
+									onClick={this.toggleNewTargetForm}
+								>
+									Add New Target
+								</button>
+							</th>
+						</tr>
+					</tfoot>
+				</table>
 				{this.state.showNewTargetForm ? <NewTarget /> : null}
 			</div>
 		)

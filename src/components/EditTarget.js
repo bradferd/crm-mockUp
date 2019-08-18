@@ -11,6 +11,7 @@ export default class EditTarget extends Component {
 			contacts: [],
 			financialPerformance: ''
 		},
+		tempContact: '',
 		redirectToHome: false
 	}
 

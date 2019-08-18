@@ -12,7 +12,7 @@ export default class Form extends Component {
 								list='status'
 								name='status'
 								onChange={this.props.handleInputChange}
-								autocomplete='off'
+								autoComplete='off'
 							/>
 						</label>
 						<datalist id='status'>
@@ -32,6 +32,19 @@ export default class Form extends Component {
 							value={this.props.companyInfo}
 							autoComplete='off'
 						/>
+					</div>
+					<div>
+						<h4>Contacts</h4>
+						{this.props.contacts.map((contact, index) => (
+							<div className='contact' key={index}>
+								<input
+									type='text'
+									value={contact.name}
+									onChange={this.props.handleContactNameChange(index)}
+								/>
+							</div>
+						))}
+						<button onClick={this.props.addContact}>Add Contact</button>
 					</div>
 					<div>
 						<label htmlFor='target-financialPerformance'>
