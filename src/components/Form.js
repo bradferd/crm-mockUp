@@ -4,14 +4,14 @@ export default class Form extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.props.handleSubmit}>
-					<div>
+				<form className='ui form' onSubmit={this.props.handleSubmit}>
+					<div className='field'>
 						<label htmlFor='target-status'>
 							Target Status
 							<input
+								onChange={this.props.handleInputChange}
 								list='status'
 								name='status'
-								onChange={this.props.handleInputChange}
 								autoComplete='off'
 							/>
 						</label>
@@ -22,7 +22,7 @@ export default class Form extends Component {
 							<option value='Denied' />
 						</datalist>
 					</div>
-					<div>
+					<div className='field'>
 						<label htmlFor='target-companyInfo'>Company Info</label>
 						<input
 							type='text'
@@ -33,20 +33,17 @@ export default class Form extends Component {
 							autoComplete='off'
 						/>
 					</div>
-					<div>
-						<h4>Contacts</h4>
-						{this.props.contacts.map((contact, index) => (
-							<div className='contact' key={index}>
-								<input
-									type='text'
-									value={contact.name}
-									onChange={this.props.handleContactNameChange(index)}
-								/>
-							</div>
-						))}
-						<button onClick={this.props.addContact}>Add Contact</button>
+					<div className='field'>
+						<label htmlFor='target-contact'>Key Contact</label>
+						<input
+							type='text'
+							value={this.props.contact}
+							onChange={this.props.handleInputChange}
+							name='contact'
+							autoComplete='off'
+						/>
 					</div>
-					<div>
+					<div className='field'>
 						<label htmlFor='target-financialPerformance'>
 							Financial Performance
 						</label>
@@ -59,7 +56,11 @@ export default class Form extends Component {
 							autoComplete='off'
 						/>
 					</div>
-					<input type='submit' value={this.props.inputValue} />
+					<input
+						className='ui button primary'
+						type='submit'
+						value={this.props.inputValue}
+					/>
 				</form>
 			</div>
 		)

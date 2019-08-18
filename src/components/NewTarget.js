@@ -8,11 +8,9 @@ export default class NewTarget extends Component {
 		newTarget: {
 			status: '',
 			companyInfo: '',
-			contacts: [{ name: '' }],
+			contact: '',
 			financialPerformance: ''
-		},
-		name: '',
-		redirectToTargetList: false
+		}
 	}
 
 	handleInputChange = e => {
@@ -40,7 +38,8 @@ export default class NewTarget extends Component {
 	handleSubmit = async e => {
 		e.preventDefault()
 		await targets.post(`/targets`, this.state.newTarget)
-		this.setState({ redirectToTargetList: true })
+		this.props.getTargets()
+		this.props.toggleNewTargetForm()
 	}
 
 	render() {

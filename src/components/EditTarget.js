@@ -8,15 +8,15 @@ export default class EditTarget extends Component {
 		target: {
 			status: '',
 			companyIndo: '',
-			contacts: [],
-			financialPerformance: ''
+			contact: '',
+			financialPerformance: '',
+			id: ''
 		},
-		tempContact: '',
 		redirectToHome: false
 	}
 
 	async componentDidMount() {
-		const res = await targets.get(`/target/${this.props.match.params.id}`)
+		const res = await targets.get(`/targets/${this.props.match.params.id}`)
 		this.setState({ target: res.data })
 	}
 
@@ -29,27 +29,27 @@ export default class EditTarget extends Component {
 	handleSubmit = async e => {
 		e.preventDefault()
 		const res = await targets.put(
-			`/target/${this.props.match.params.id}`,
+			`/targets/${this.props.match.params.id}`,
 			this.state.target
 		)
 		this.setState({ target: res.data, redirectToHome: true })
 	}
 
 	render() {
-		if (this.state.redirectToTargetList) {
-			return <Redirect to='/' />
+		if (this.state.redirectToHome) {
+			return <Redirect to='/targets' />
 		}
 		return (
-			<div>
+			<div className='ui container'>
 				<Form
 					handleSubmit={this.handleSubmit}
 					handleInputChange={this.handleInputChange}
 					handleContactInfoChange={this.handleContactInfoChange}
-					status={this.state.newTarget.status}
-					companyInfo={this.state.newTarget.companyInfo}
-					contacts={this.state.newTarget.contacts}
-					financialPerformance={this.state.newTarget.financialPerformance}
-					inputValue='Create Target'
+					status={this.state.target.status}
+					companyInfo={this.state.target.companyInfo}
+					contact={this.state.target.contact}
+					financialPerformance={this.state.target.financialPerformance}
+					inputValue='Edit Target'
 				/>
 			</div>
 		)

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import NewTarget from './NewTarget'
 import Targets from '../apis/targets'
 
@@ -28,13 +29,13 @@ export default class TargetList extends Component {
 			return (
 				<tr key={target.id}>
 					<td className='collapsing'>
-						<a>
+						<Link to={`/targets/${target.id}/edit`}>
 							<i className='edit icon' />
-						</a>
+						</Link>
 					</td>
-					<td data-label='status'>{target.status}</td>
 					<td data-label='companyInfo'>{target.companyInfo}</td>
-					<td data-label='contacts'>{target.contacts}</td>
+					<td data-label='status'>{target.status}</td>
+					<td data-label='contacts'>{target.contact}</td>
 					<td data-label='financialPerformance'>
 						{target.financialPerformance}
 					</td>
@@ -42,14 +43,14 @@ export default class TargetList extends Component {
 			)
 		})
 		return (
-			<div className='ui container'>
-				<h1>This is the target list component</h1>
+			<div className='ui container center aligned'>
+				<h2>Target List</h2>
 				<table className='ui compact celled definition table'>
 					<thead>
 						<tr>
 							<th />
-							<th>Status</th>
 							<th>Company Info</th>
+							<th>Status</th>
 							<th>Contacts</th>
 							<th>Financial Peformance</th>
 						</tr>
@@ -60,16 +61,23 @@ export default class TargetList extends Component {
 							<th />
 							<th colSpan='4'>
 								<button
-									className='ui right floated small button primary'
+									className='ui right floated circular icon button primary'
 									onClick={this.toggleNewTargetForm}
 								>
-									Add New Target
+									<i className='add icon' />
 								</button>
 							</th>
 						</tr>
 					</tfoot>
 				</table>
-				{this.state.showNewTargetForm ? <NewTarget /> : null}
+				<div className='ui container left aligned'>
+					{this.state.showNewTargetForm ? (
+						<NewTarget
+							toggleNewTargetForm={this.toggleNewTargetForm}
+							getTargets={this.getTargets}
+						/>
+					) : null}
+				</div>
 			</div>
 		)
 	}
