@@ -56,11 +56,11 @@ export default class TargetList extends Component {
 					>
 						{target.status}
 					</td>
-					<td data-label='contacts'>
-						{target.contact.map(contact => `${contact.name} `)}
-					</td>
 					<td data-label='financialPerformance'>
 						{target.financialPerformance}
+					</td>
+					<td data-label='contacts'>
+						{target.contact.map(contact => `${contact.name} `)}
 					</td>
 				</tr>
 			)
@@ -74,10 +74,10 @@ export default class TargetList extends Component {
 							<th />
 							<th onClick={e => this.onSort(e, 'companyInfo')}>Company Info</th>
 							<th onClick={e => this.onSort(e, 'status')}>Status</th>
-							<th>Contacts</th>
 							<th onClick={e => this.onSort(e, 'financialPerformance')}>
 								Financial Peformance
 							</th>
+							<th>Contacts</th>
 						</tr>
 					</thead>
 					<tbody>{targets}</tbody>

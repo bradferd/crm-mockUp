@@ -25,7 +25,7 @@ class BarChart extends Component {
 			.append('rect')
 			.attr('x', (d, i) => i * 70)
 			.attr('y', (d, i) => h - 10 * d)
-			.attr('width', 60)
+			.attr('width', 69)
 			.attr('height', (d, i) => d * 10)
 			.attr('fill', 'steelblue')
 

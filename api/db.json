@@ -8,13 +8,10 @@
           "name": "Brad"
         },
         {
-          "name": "Someone"
-        },
-        {
           "name": "Yvette"
         }
       ],
-      "financialPerformance": "They doin aight",
+      "financialPerformance": "They doin v good",
       "id": 1
     },
     {
@@ -38,9 +35,6 @@
       "status": "Pending Approval",
       "companyInfo": "IBM",
       "contact": [
-        {
-          "name": "Phil Hartman"
-        },
         {
           "name": "Danny Osman"
         },

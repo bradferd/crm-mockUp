@@ -41,23 +41,21 @@ export default class EditTarget extends Component {
 
 	// function to add additional contacts to contact form
 	handleAddContact = () => {
-		const copiedNewTarget = { ...this.state.newTarget }
-		copiedNewTarget.contact = this.state.newTarget.contact.concat([
-			{ name: '' }
-		])
+		const copiedTarget = { ...this.state.target }
+		copiedTarget.contact = this.state.target.contact.concat([{ name: '' }])
 		this.setState({
-			newTarget: copiedNewTarget
+			target: copiedTarget
 		})
 	}
 
 	// function to remove contact fields from contact form
 	handleRemoveContact = i => () => {
-		const copiedNewTarget = { ...this.state.newTarget }
-		copiedNewTarget.contact = this.state.newTarget.contact.filter(
+		const copiedTarget = { ...this.state.target }
+		copiedTarget.contact = this.state.target.contact.filter(
 			(contact, ci) => i !== ci
 		)
 		this.setState({
-			newTarget: copiedNewTarget
+			target: copiedTarget
 		})
 	}
 
