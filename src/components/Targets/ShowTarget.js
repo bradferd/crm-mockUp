@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import targets from '../apis/targets'
+import targets from '../../apis/targets'
 import { Link, Redirect } from 'react-router-dom'
-import Modal from './Modal'
-import image from '../images/financialData.png'
-import BarChart from './BarChart'
+import Modal from '../Modal'
+import BarChart from '../BarChart'
 
 export default class ShowTarget extends Component {
 	state = {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import NewTarget from './NewTarget'
-import Targets from '../apis/targets'
+import Targets from '../../apis/targets'
 
 export default class TargetList extends Component {
 	state = {
@@ -74,7 +73,7 @@ export default class TargetList extends Component {
 		})
 		return (
 			<div className='ui container center aligned'>
-				<h2>Target List</h2>
+				<h2 className='header'>Target List</h2>
 				<table className='ui compact celled definition table'>
 					<thead>
 						<tr>

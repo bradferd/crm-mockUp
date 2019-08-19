@@ -1,39 +1,34 @@
 import React, { Component } from 'react'
-import Form from './Form'
 import { Redirect } from 'react-router-dom'
-import targets from '../apis/targets'
+import Form from './Form'
+import targets from '../../apis/targets'
 
-export default class EditTarget extends Component {
+export default class NewTarget extends Component {
 	state = {
-		target: {
+		newTarget: {
 			status: '',
-			companyIndo: '',
-			contact: [],
+			companyInfo: '',
+			contact: [{ name: '' }],
 			financialPerformance: ''
 		},
 		name: '',
-		redirectToHome: false
-	}
-
-	async componentDidMount() {
-		const res = await targets.get(`/targets/${this.props.match.params.id}`)
-		this.setState({ target: res.data })
+		redirectToTargetList: false
 	}
 
 	handleInputChange = e => {
-		const copyTarget = { ...this.state.target }
+		const copyTarget = { ...this.state.newTarget }
 		copyTarget[e.target.name] = e.target.value
-		this.setState({ target: copyTarget })
+		this.setState({ newTarget: copyTarget })
 	}
 
 	handleContactNameChange = i => e => {
-		const newContact = this.state.target.contact.map((contact, ci) => {
+		const newContact = this.state.newTarget.contact.map((contact, ci) => {
 			if (i !== ci) return contact
 			return { ...contact, name: e.target.value }
 		})
-		const copiedTarget = { ...this.state.target }
-		copiedTarget.contact = newContact
-		this.setState({ target: copiedTarget })
+		const copiedNewTarget = { ...this.state.newTarget }
+		copiedNewTarget.contact = newContact
+		this.setState({ newTarget: copiedNewTarget })
 	}
 
 	handleAddContact = () => {
@@ -58,30 +53,27 @@ export default class EditTarget extends Component {
 
 	handleSubmit = async e => {
 		e.preventDefault()
-		const res = await targets.put(
-			`/targets/${this.props.match.params.id}`,
-			this.state.target
-		)
-		this.setState({ target: res.data, redirectToHome: true })
+		await targets.post(`/targets`, this.state.newTarget)
+		this.setState({ redirectToTargetList: true })
 	}
 
 	render() {
-		if (this.state.redirectToHome) {
+		if (this.state.redirectToTargetList) {
 			return <Redirect to='/targets' />
 		}
 		return (
-			<div className='ui container'>
+			<div className='ui container left aligned'>
 				<Form
 					handleSubmit={this.handleSubmit}
 					handleInputChange={this.handleInputChange}
 					handleContactNameChange={this.handleContactNameChange}
 					addContact={this.handleAddContact}
 					handleRemoveContact={this.handleRemoveContact}
-					status={this.state.target.status}
-					companyInfo={this.state.target.companyInfo}
-					contacts={this.state.target.contact}
-					financialPerformance={this.state.target.financialPerformance}
-					inputValue='Edit Target'
+					status={this.state.newTarget.status}
+					companyInfo={this.state.newTarget.companyInfo}
+					contacts={this.state.newTarget.contact}
+					financialPerformance={this.state.newTarget.financialPerformance}
+					inputValue='Create Target'
 				/>
 			</div>
 		)

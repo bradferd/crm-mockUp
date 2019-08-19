@@ -1,14 +1,16 @@
 import React from 'react'
-import TargetList from './components/TargetList'
+import TargetList from './components/Targets/TargetList'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import EditTarget from './components/EditTarget'
-import NewTarget from './components/NewTarget'
-import ShowTarget from './components/ShowTarget'
+import EditTarget from './components/Forms/EditTarget'
+import NewTarget from './components/Forms/NewTarget'
+import ShowTarget from './components/Targets/ShowTarget'
+import Navbar from './components/Navbar'
 
 function App() {
 	return (
-		<div>
+		<div className='App'>
 			<Router>
+				<Navbar />
 				<Switch>
 					<Route exact path='/targets' component={TargetList} />
 					<Route path='/targets/:id/edit' component={EditTarget} />
