@@ -37,14 +37,23 @@ export default class Form extends Component {
 						<label htmlFor='contact-name'>Contacts</label>
 						{this.props.contacts.map((contact, i) => {
 							return (
-								<div className='contact field'>
-									<input
-										type='text'
-										name='contact-name'
-										value={contact.name}
-										onChange={this.props.handleContactNameChange(i)}
-									/>
-								</div>
+								<>
+									<div className='contact field'>
+										<input
+											type='text'
+											name='contact-name'
+											value={contact.name}
+											onChange={this.props.handleContactNameChange(i)}
+										/>
+									</div>
+									<button
+										type='button'
+										className='ui circular icon button floated right'
+										onClick={this.props.handleRemoveContact(i)}
+									>
+										<i className='icon delete' />
+									</button>
+								</>
 							)
 						})}
 						<button

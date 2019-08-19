@@ -41,6 +41,16 @@ export default class NewTarget extends Component {
 		})
 	}
 
+	handleRemoveContact = i => () => {
+		const copiedNewTarget = { ...this.state.newTarget }
+		copiedNewTarget.contact = this.state.newTarget.contact.filter(
+			(contact, ci) => i !== ci
+		)
+		this.setState({
+			newTarget: copiedNewTarget
+		})
+	}
+
 	handleSubmit = async e => {
 		e.preventDefault()
 		await targets.post(`/targets`, this.state.newTarget)
@@ -58,6 +68,7 @@ export default class NewTarget extends Component {
 					handleInputChange={this.handleInputChange}
 					handleContactNameChange={this.handleContactNameChange}
 					addContact={this.handleAddContact}
+					handleRemoveContact={this.handleRemoveContact}
 					status={this.state.newTarget.status}
 					companyInfo={this.state.newTarget.companyInfo}
 					contacts={this.state.newTarget.contact}

@@ -18,21 +18,38 @@
       "id": 1
     },
     {
-      "status": "Pending Approval",
-      "companyInfo": "We make things",
+      "status": "Approved",
+      "companyInfo": "B2B Software Company",
       "contact": [
+        {
+          "name": "Bill"
+        },
         {
           "name": "Brad"
         },
         {
-          "name": "Yvette"
-        },
-        {
-          "name": "Milo"
+          "name": "Phil"
         }
       ],
-      "financialPerformance": "It's on the rise",
+      "financialPerformance": "They doin great ok",
       "id": 2
+    },
+    {
+      "status": "Pending Approval",
+      "companyInfo": "IBM",
+      "contact": [
+        {
+          "name": "Phil Hartman"
+        },
+        {
+          "name": "Danny Osman"
+        },
+        {
+          "name": "Some Dude"
+        }
+      ],
+      "financialPerformance": "Legit",
+      "id": 3
     }
   ]
 }

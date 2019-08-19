@@ -8,10 +8,10 @@ export default class EditTarget extends Component {
 		target: {
 			status: '',
 			companyIndo: '',
-			contact: '',
-			financialPerformance: '',
-			id: ''
+			contact: [],
+			financialPerformance: ''
 		},
+		name: '',
 		redirectToHome: false
 	}
 
@@ -24,6 +24,36 @@ export default class EditTarget extends Component {
 		const copyTarget = { ...this.state.target }
 		copyTarget[e.target.name] = e.target.value
 		this.setState({ target: copyTarget })
+	}
+
+	handleContactNameChange = i => e => {
+		const newContact = this.state.target.contact.map((contact, ci) => {
+			if (i !== ci) return contact
+			return { ...contact, name: e.target.value }
+		})
+		const copiedTarget = { ...this.state.target }
+		copiedTarget.contact = newContact
+		this.setState({ target: copiedTarget })
+	}
+
+	handleAddContact = () => {
+		const copiedNewTarget = { ...this.state.newTarget }
+		copiedNewTarget.contact = this.state.newTarget.contact.concat([
+			{ name: '' }
+		])
+		this.setState({
+			newTarget: copiedNewTarget
+		})
+	}
+
+	handleRemoveContact = i => () => {
+		const copiedNewTarget = { ...this.state.newTarget }
+		copiedNewTarget.contact = this.state.newTarget.contact.filter(
+			(contact, ci) => i !== ci
+		)
+		this.setState({
+			newTarget: copiedNewTarget
+		})
 	}
 
 	handleSubmit = async e => {
@@ -44,10 +74,12 @@ export default class EditTarget extends Component {
 				<Form
 					handleSubmit={this.handleSubmit}
 					handleInputChange={this.handleInputChange}
-					handleContactInfoChange={this.handleContactInfoChange}
+					handleContactNameChange={this.handleContactNameChange}
+					addContact={this.handleAddContact}
+					handleRemoveContact={this.handleRemoveContact}
 					status={this.state.target.status}
 					companyInfo={this.state.target.companyInfo}
-					contact={this.state.target.contact}
+					contacts={this.state.target.contact}
 					financialPerformance={this.state.target.financialPerformance}
 					inputValue='Edit Target'
 				/>

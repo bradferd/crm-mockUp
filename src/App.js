@@ -11,9 +11,9 @@ function App() {
 			<Router>
 				<Switch>
 					<Route exact path='/targets' component={TargetList} />
-					<Route path='/targets/:id' component={ShowTarget} />
 					<Route path='/targets/:id/edit' component={EditTarget} />
 					<Route path='/targets/new' component={NewTarget} />
+					<Route path='/targets/:id' component={ShowTarget} />
 				</Switch>
 			</Router>
 		</div>
