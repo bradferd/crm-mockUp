@@ -2,47 +2,37 @@
   "targets": [
     {
       "status": "Researching",
-      "companyInfo": "test",
-      "contacts": [],
-      "financialPerformance": "test",
+      "companyInfo": "Educational Software Company",
+      "contact": [
+        {
+          "name": "Brad"
+        },
+        {
+          "name": "Someone"
+        },
+        {
+          "name": "Yvette"
+        }
+      ],
+      "financialPerformance": "They doin aight",
       "id": 1
     },
     {
-      "status": "Approved",
-      "companyInfo": "test edit",
-      "contacts": [],
-      "financialPerformance": "test",
-      "id": 2,
-      "contact": "Some guy"
-    },
-    {
-      "status": "Researching",
-      "companyInfo": "Test",
-      "contacts": [],
-      "financialPerformance": "Test",
-      "id": 3,
-      "contact": "Key Player"
-    },
-    {
-      "status": "Approved",
-      "companyInfo": "Apple",
-      "contact": "Tim Cook",
-      "financialPerformance": "Up 5% over the last year",
-      "id": 4
-    },
-    {
-      "status": "Denied",
-      "companyInfo": "Education Software Company",
-      "contact": "John Doe",
-      "financialPerformance": "They do pretty good, I guess",
-      "id": 5
-    },
-    {
       "status": "Pending Approval",
-      "companyInfo": "Home Imporvement",
-      "contact": "Larry David",
-      "financialPerformance": "They aight",
-      "id": 6
+      "companyInfo": "We make things",
+      "contact": [
+        {
+          "name": "Brad"
+        },
+        {
+          "name": "Yvette"
+        },
+        {
+          "name": "Milo"
+        }
+      ],
+      "financialPerformance": "It's on the rise",
+      "id": 2
     }
   ]
 }

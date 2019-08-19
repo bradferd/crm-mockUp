@@ -18,6 +18,34 @@ export default class TargetList extends Component {
 		this.setState({ targets: res.data })
 	}
 
+	renderStatus = target => {
+		if (target.status === 'Approved') {
+			return (
+				<td data-label='status' className='positive'>
+					{target.status}
+				</td>
+			)
+		} else if (target.status === 'Denied') {
+			return (
+				<td data-label='status' className='negative'>
+					{target.status}
+				</td>
+			)
+		} else if (target.status === 'Pending Approval') {
+			return (
+				<td data-label='status' className='warning'>
+					{target.status}
+				</td>
+			)
+		} else {
+			return (
+				<td data-label='status' className='primary'>
+					{target.status}
+				</td>
+			)
+		}
+	}
+
 	toggleNewTargetForm = () => {
 		this.setState(state => {
 			return { showNewTargetForm: !state.showNewTargetForm }
@@ -34,8 +62,10 @@ export default class TargetList extends Component {
 						</Link>
 					</td>
 					<td data-label='companyInfo'>{target.companyInfo}</td>
-					<td data-label='status'>{target.status}</td>
-					<td data-label='contacts'>{target.contact}</td>
+					{this.renderStatus(target)}
+					<td data-label='contacts'>
+						{target.contact.map(contact => `${contact.name} `)}
+					</td>
 					<td data-label='financialPerformance'>
 						{target.financialPerformance}
 					</td>
@@ -60,24 +90,16 @@ export default class TargetList extends Component {
 						<tr>
 							<th />
 							<th colSpan='4'>
-								<button
+								<Link
 									className='ui right floated circular icon button primary'
-									onClick={this.toggleNewTargetForm}
+									to='/targets/new'
 								>
 									<i className='add icon' />
-								</button>
+								</Link>
 							</th>
 						</tr>
 					</tfoot>
 				</table>
-				<div className='ui container left aligned'>
-					{this.state.showNewTargetForm ? (
-						<NewTarget
-							toggleNewTargetForm={this.toggleNewTargetForm}
-							getTargets={this.getTargets}
-						/>
-					) : null}
-				</div>
 			</div>
 		)
 	}

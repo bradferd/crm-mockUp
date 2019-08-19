@@ -34,14 +34,26 @@ export default class Form extends Component {
 						/>
 					</div>
 					<div className='field'>
-						<label htmlFor='target-contact'>Key Contact</label>
-						<input
-							type='text'
-							value={this.props.contact}
-							onChange={this.props.handleInputChange}
-							name='contact'
-							autoComplete='off'
-						/>
+						<label htmlFor='contact-name'>Contacts</label>
+						{this.props.contacts.map((contact, i) => {
+							return (
+								<div className='contact field'>
+									<input
+										type='text'
+										name='contact-name'
+										value={contact.name}
+										onChange={this.props.handleContactNameChange(i)}
+									/>
+								</div>
+							)
+						})}
+						<button
+							type='button'
+							className='ui icon button circular primary'
+							onClick={this.props.addContact}
+						>
+							<i className='add icon' />
+						</button>
 					</div>
 					<div className='field'>
 						<label htmlFor='target-financialPerformance'>
