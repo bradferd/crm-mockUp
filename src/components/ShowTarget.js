@@ -3,6 +3,7 @@ import targets from '../apis/targets'
 import { Link, Redirect } from 'react-router-dom'
 import Modal from './Modal'
 import image from '../images/financialData.png'
+import BarChart from './BarChart'
 
 export default class ShowTarget extends Component {
 	state = {
@@ -53,8 +54,9 @@ export default class ShowTarget extends Component {
 				<h3>Status: {this.state.target.status}</h3>
 				<h4>Key Contacts</h4>
 				<ul>{contacts}</ul>
-				<div className='ui container center aligned'>
-					<img src={image} alt='financial data' height='300' width='375' />
+				<div className='ui container center aligned d3'>
+					<BarChart id={this.state.target.id} />
+					<h4>Quarterly Revenue</h4>
 				</div>
 			</>
 		)
