@@ -57,8 +57,8 @@ export default class TargetList extends Component {
 			return (
 				<tr key={target.id}>
 					<td className='collapsing'>
-						<Link to={`/targets/${target.id}/edit`}>
-							<i className='edit icon' />
+						<Link to={`/targets/${target.id}`}>
+							<i className='search icon' />
 						</Link>
 					</td>
 					<td data-label='companyInfo'>{target.companyInfo}</td>
