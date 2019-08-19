@@ -15,16 +15,19 @@ export default class ShowTarget extends Component {
 		this.getTargetData()
 	}
 
+	// function to fetch specific target data
 	async getTargetData() {
 		const res = await targets.get(`/targets/${this.props.match.params.id}`)
 		this.setState({ target: res.data, contacts: res.data.contact })
 	}
 
+	// function to handle deleting a target
 	handleDelete = async () => {
 		await targets.delete(`/targets/${this.props.match.params.id}`)
 		this.setState({ redirectToTargets: true })
 	}
 
+	// function to render edit and delete buttons on the modal
 	renderActions = () => {
 		return (
 			<>
@@ -44,6 +47,7 @@ export default class ShowTarget extends Component {
 		)
 	}
 
+	// function to render content on the modal
 	renderContent = () => {
 		const contacts = this.state.contacts.map(contact => {
 			return <li>{contact.name}</li>
@@ -62,6 +66,7 @@ export default class ShowTarget extends Component {
 	}
 
 	render() {
+		// If delete button is hit, user is then redirected to target list page
 		if (this.state.redirectToTargets) {
 			return <Redirect to='/targets' />
 		}

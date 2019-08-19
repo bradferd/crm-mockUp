@@ -15,17 +15,20 @@ export default class EditTarget extends Component {
 		redirectToHome: false
 	}
 
+	// Lifecycle method that fetches all target data once component mounts
 	async componentDidMount() {
 		const res = await targets.get(`/targets/${this.props.match.params.id}`)
 		this.setState({ target: res.data })
 	}
 
+	// function to handle change of input fields on edit form
 	handleInputChange = e => {
 		const copyTarget = { ...this.state.target }
 		copyTarget[e.target.name] = e.target.value
 		this.setState({ target: copyTarget })
 	}
 
+	// function to handle change of input on nested contact fields
 	handleContactNameChange = i => e => {
 		const newContact = this.state.target.contact.map((contact, ci) => {
 			if (i !== ci) return contact
@@ -36,6 +39,7 @@ export default class EditTarget extends Component {
 		this.setState({ target: copiedTarget })
 	}
 
+	// function to add additional contacts to contact form
 	handleAddContact = () => {
 		const copiedNewTarget = { ...this.state.newTarget }
 		copiedNewTarget.contact = this.state.newTarget.contact.concat([
@@ -46,6 +50,7 @@ export default class EditTarget extends Component {
 		})
 	}
 
+	// function to remove contact fields from contact form
 	handleRemoveContact = i => () => {
 		const copiedNewTarget = { ...this.state.newTarget }
 		copiedNewTarget.contact = this.state.newTarget.contact.filter(
@@ -56,6 +61,7 @@ export default class EditTarget extends Component {
 		})
 	}
 
+	// function to handle PUT request for edit form
 	handleSubmit = async e => {
 		e.preventDefault()
 		const res = await targets.put(
@@ -66,6 +72,8 @@ export default class EditTarget extends Component {
 	}
 
 	render() {
+		// when the user submits the form
+		// they will be redirected to the target list page
 		if (this.state.redirectToHome) {
 			return <Redirect to='/targets' />
 		}

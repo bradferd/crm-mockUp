@@ -6,7 +6,7 @@ export default class Navbar extends Component {
 		return (
 			<div className='ui secondary pointing menu'>
 				<a className='active item'>Home</a>
-				<div classNane='right menu'>
+				<div classNane='menu'>
 					<Link to='/targets' className='ui item'>
 						Target List
 					</Link>

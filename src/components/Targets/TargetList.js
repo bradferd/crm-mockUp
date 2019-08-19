@@ -12,11 +12,13 @@ export default class TargetList extends Component {
 		this.getTargets()
 	}
 
+	// fetch all target data
 	getTargets = async () => {
 		const res = await Targets.get('/targets')
 		this.setState({ targets: res.data })
 	}
 
+	// function to add class name depending on status of target
 	renderStatus = target => {
 		if (target.status === 'Approved') {
 			return (
@@ -45,13 +47,8 @@ export default class TargetList extends Component {
 		}
 	}
 
-	toggleNewTargetForm = () => {
-		this.setState(state => {
-			return { showNewTargetForm: !state.showNewTargetForm }
-		})
-	}
-
 	render() {
+		// mapping over targets to make table data
 		let targets = this.state.targets.map(target => {
 			return (
 				<tr key={target.id}>

@@ -7,9 +7,10 @@ class BarChart extends Component {
 	}
 
 	drawChart() {
-		const data = [12, 5, 6, 6, 9, 10]
-		let h = 200
-		let w = 320
+		// Hard coded data for the financial performance bar chart
+		const data = [12, 5, 13, 10]
+		let h = 160
+		let w = 300
 
 		const svg = d3
 			.select('#d3')
@@ -24,16 +25,16 @@ class BarChart extends Component {
 			.append('rect')
 			.attr('x', (d, i) => i * 70)
 			.attr('y', (d, i) => h - 10 * d)
-			.attr('width', 35)
+			.attr('width', 60)
 			.attr('height', (d, i) => d * 10)
-			.attr('fill', 'green')
+			.attr('fill', 'steelblue')
 
 		svg
 			.selectAll('text')
 			.data(data)
 			.enter()
 			.append('text')
-			.text(d => d)
+			.text((d, i) => `${d}0,000 Q${i + 1}`)
 			.attr('x', (d, i) => i * 70)
 			.attr('y', (d, i) => h - 10 * d - 3)
 	}

@@ -15,12 +15,14 @@ export default class NewTarget extends Component {
 		redirectToTargetList: false
 	}
 
+	// Function to handle inputs
 	handleInputChange = e => {
 		const copyTarget = { ...this.state.newTarget }
 		copyTarget[e.target.name] = e.target.value
 		this.setState({ newTarget: copyTarget })
 	}
 
+	// Function to handle input change on nested contact model
 	handleContactNameChange = i => e => {
 		const newContact = this.state.newTarget.contact.map((contact, ci) => {
 			if (i !== ci) return contact
@@ -31,6 +33,7 @@ export default class NewTarget extends Component {
 		this.setState({ newTarget: copiedNewTarget })
 	}
 
+	// Function to handle adding additional contacts
 	handleAddContact = () => {
 		const copiedNewTarget = { ...this.state.newTarget }
 		copiedNewTarget.contact = this.state.newTarget.contact.concat([
@@ -41,6 +44,7 @@ export default class NewTarget extends Component {
 		})
 	}
 
+	// Function to handle removing a contact from contact form
 	handleRemoveContact = i => () => {
 		const copiedNewTarget = { ...this.state.newTarget }
 		copiedNewTarget.contact = this.state.newTarget.contact.filter(
@@ -51,6 +55,7 @@ export default class NewTarget extends Component {
 		})
 	}
 
+	// Function to handle post request once form is submitted
 	handleSubmit = async e => {
 		e.preventDefault()
 		await targets.post(`/targets`, this.state.newTarget)
@@ -58,6 +63,7 @@ export default class NewTarget extends Component {
 	}
 
 	render() {
+		// Once form is submitted, user is redirected to target list page
 		if (this.state.redirectToTargetList) {
 			return <Redirect to='/targets' />
 		}
