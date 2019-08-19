@@ -19,32 +19,23 @@ export default class TargetList extends Component {
 	}
 
 	// function to add class name depending on status of target
-	renderStatus = target => {
-		if (target.status === 'Approved') {
-			return (
-				<td data-label='status' className='positive'>
-					{target.status}
-				</td>
-			)
-		} else if (target.status === 'Denied') {
-			return (
-				<td data-label='status' className='negative'>
-					{target.status}
-				</td>
-			)
-		} else if (target.status === 'Pending Approval') {
-			return (
-				<td data-label='status' className='warning'>
-					{target.status}
-				</td>
-			)
+	renderStatus = status => {
+		if (status === 'Approved') {
+			return 'positive'
+		} else if (status === 'Denied') {
+			return 'negative'
+		} else if (status === 'Pending Approval') {
+			return 'warning'
 		} else {
-			return (
-				<td data-label='status' className='primary'>
-					{target.status}
-				</td>
-			)
+			return null
 		}
+	}
+
+	// function to sort columns by alphabetical order
+	onSort = (e, sortKey) => {
+		const data = this.state.targets
+		data.sort((a, b) => a[sortKey].localeCompare(b[sortKey]))
+		this.setState({ newTarget: data })
 	}
 
 	render() {
@@ -58,7 +49,13 @@ export default class TargetList extends Component {
 						</Link>
 					</td>
 					<td data-label='companyInfo'>{target.companyInfo}</td>
-					{this.renderStatus(target)}
+					<td
+						data-label='status'
+						data-importance={this.handleImportance}
+						className={this.renderStatus(target.status)}
+					>
+						{target.status}
+					</td>
 					<td data-label='contacts'>
 						{target.contact.map(contact => `${contact.name} `)}
 					</td>
@@ -75,10 +72,12 @@ export default class TargetList extends Component {
 					<thead>
 						<tr>
 							<th />
-							<th>Company Info</th>
-							<th>Status</th>
+							<th onClick={e => this.onSort(e, 'companyInfo')}>Company Info</th>
+							<th onClick={e => this.onSort(e, 'status')}>Status</th>
 							<th>Contacts</th>
-							<th>Financial Peformance</th>
+							<th onClick={e => this.onSort(e, 'financialPerformance')}>
+								Financial Peformance
+							</th>
 						</tr>
 					</thead>
 					<tbody>{targets}</tbody>
