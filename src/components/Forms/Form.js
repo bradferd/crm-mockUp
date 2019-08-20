@@ -31,7 +31,7 @@ export default class Form extends Component {
 							name='companyInfo'
 							value={this.props.companyInfo}
 							placeholder='Company Name, Industry, etc...'
-							autoComplete='off'
+							required
 						/>
 					</div>
 					<div className='ui field'>
@@ -44,10 +44,10 @@ export default class Form extends Component {
 											className='four wide field'
 											type='text'
 											name='name'
-											placeholder={`Name for contact #${i + 1}...`}
+											placeholder={`Contact ${i + 1} Name...`}
 											value={contact.name}
 											onChange={this.props.handleContactNameChange(i)}
-											autoComplete='off'
+											required
 										/>
 										<input
 											className='four wide field'
@@ -57,16 +57,16 @@ export default class Form extends Component {
 											placeholder={`123-456-7890`}
 											value={contact.phone}
 											onChange={this.props.handleContactNameChange(i)}
-											autoComplete='off'
+											required
 										/>
 										<input
 											className='four wide field'
 											type='email'
 											name='email'
-											placeholder={`Email for contact #${i + 1}`}
+											placeholder={`email@gmail.com`}
 											value={contact.email}
 											onChange={this.props.handleContactNameChange(i)}
-											autoComplete='off'
+											required
 										/>
 										{i === 0 ? null : (
 											<button
@@ -97,7 +97,7 @@ export default class Form extends Component {
 							Financial Performance
 						</label>
 						<textarea
-							rows='3'
+							rows='2'
 							type='text'
 							onChange={this.props.handleInputChange}
 							id='target-financialPerformance'
@@ -105,6 +105,7 @@ export default class Form extends Component {
 							value={this.props.financialPerformance}
 							autoComplete='off'
 							placeholder='Company financial performance'
+							required
 						/>
 					</div>
 					<input
