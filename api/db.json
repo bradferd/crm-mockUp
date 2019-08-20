@@ -1,74 +1,53 @@
 {
   "targets": [
     {
-      "status": "Researching",
-      "companyInfo": "Educational Software Company",
+      "status": "Approved",
+      "companyInfo": "Virtucom, Inc. an education technology company",
       "contact": [
         {
-          "name": "Brad"
+          "name": "Bradford C Bailey",
+          "phone": "4045578515",
+          "email": "bbailey921@gmail.com"
         },
         {
-          "name": "Yvette"
+          "name": "Annie Jane",
+          "phone": "1234567890",
+          "email": "test@test.com"
         }
       ],
-      "financialPerformance": "They doin v good",
+      "financialPerformance": "They're growing rapidly",
       "id": 1
     },
     {
       "status": "Approved",
-      "companyInfo": "B2B Software Company",
+      "companyInfo": "Yvette's Dog Sitting",
       "contact": [
         {
-          "name": "Bill"
-        },
-        {
-          "name": "Brad"
+          "name": "Yvette",
+          "phone": "6789839031",
+          "email": "yvette.piedra@gmail.com"
         }
       ],
-      "financialPerformance": "They doin great ok",
+      "financialPerformance": "Through the ruff, ruff",
       "id": 2
     },
     {
       "status": "Pending Approval",
-      "companyInfo": "Test Company",
+      "companyInfo": "Yvette's Dog Smelling",
       "contact": [
         {
-          "name": "John Doe test@test.com"
+          "name": "Yvette Piedra",
+          "phone": "123-456-7890",
+          "email": "test@test.com"
         },
         {
-          "name": "Jane Doe test@test.com"
-        },
-        {
-          "name": "Bob Doe test@test.com"
+          "name": "Brad Bailey",
+          "phone": "404-558-8515",
+          "email": "lol@lol.com"
         }
       ],
-      "financialPerformance": "Great!",
-      "id": 4
-    },
-    {
-      "status": "Researching",
-      "companyInfo": "WeMakeWebsites LLC",
-      "contact": [
-        {
-          "name": "Bradford Bailey (404)557-8515"
-        },
-        {
-          "name": "Yvette Piedra yvette.piedra@gmail.com"
-        }
-      ],
-      "financialPerformance": "They are growing fast!",
-      "id": 5
-    },
-    {
-      "status": "Researching",
-      "companyInfo": "Hello, my name is Brad",
-      "contact": [
-        {
-          "name": "Bradford C Bailey (404) 557-8515"
-        }
-      ],
-      "financialPerformance": "He got fat pockets",
-      "id": 6
+      "financialPerformance": "We are so awesome",
+      "id": 3
     }
   ]
 }

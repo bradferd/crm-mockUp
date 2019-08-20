@@ -11,23 +11,25 @@ export default class Navbar extends Component {
 	}
 	render() {
 		return (
-			<div className='ui secondary pointing menu'>
-				<NavLink
-					exact={true}
-					to='/'
-					activeClassName='ui active item'
-					className='ui item'
-				>
-					Home
-				</NavLink>
-				<div classNane='menu'>
+			<div className='ui inverted segment' style={{ margin: '-10px' }}>
+				<div className='ui inverted secondary pointing menu'>
 					<NavLink
+						exact={true}
+						to='/'
 						activeClassName='ui active item'
-						to='/targets'
 						className='ui item'
 					>
-						Target List
+						Home
 					</NavLink>
+					<div className='right menu'>
+						<NavLink
+							activeClassName='ui active item'
+							to='/targets'
+							className='ui item'
+						>
+							Target List
+						</NavLink>
+					</div>
 				</div>
 			</div>
 		)

@@ -68,8 +68,8 @@ export default class TargetList extends Component {
 					</td>
 					<td data-label='contacts'>
 						<ul>
-							{target.contact.map(contact => (
-								<li>{contact.name}</li>
+							{target.contact.map((contact, i) => (
+								<li key={i}>{contact.name}</li>
 							))}
 						</ul>
 					</td>
@@ -77,7 +77,10 @@ export default class TargetList extends Component {
 			)
 		})
 		return (
-			<div className='ui container center aligned'>
+			<div
+				className='ui container center aligned'
+				style={{ marginTop: '20px' }}
+			>
 				<h2 className='header'>Target List</h2>
 				<table className='ui compact celled definition table'>
 					<thead>

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Form extends Component {
 	render() {
 		return (
-			<div>
+			<div style={{ marginTop: '20px' }}>
 				<form className='ui form' onSubmit={this.props.handleSubmit}>
 					<div className='field'>
 						<label htmlFor='target-status'>Target Status</label>
@@ -12,7 +12,9 @@ export default class Form extends Component {
 							onChange={this.props.handleInputChange}
 							id='status'
 							name='status'
+							required
 						>
+							<option value=''>Select a Status</option>
 							<option value='Researching'>Researching</option>
 							<option value='Pending Approval'>Pending Approval</option>
 							<option value='Approved'>Approved</option>
@@ -32,20 +34,39 @@ export default class Form extends Component {
 							autoComplete='off'
 						/>
 					</div>
-					<div className='ui field column'>
+					<div className='ui field'>
 						<label htmlFor='contact-name'>Contacts</label>
 						{this.props.contacts.map((contact, i) => {
 							return (
 								<>
-									<div className='contact inline'>
+									<div key={i} className='contact'>
 										<input
-											className='twelve wide field'
+											className='four wide field'
 											type='text'
-											name='contact-name'
-											placeholder={`Add a name and best contact for contact #${i +
-												1}...`}
+											name='name'
+											placeholder={`Name for contact #${i + 1}...`}
 											value={contact.name}
 											onChange={this.props.handleContactNameChange(i)}
+											autoComplete='off'
+										/>
+										<input
+											className='four wide field'
+											type='tel'
+											pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
+											name='phone'
+											placeholder={`123-456-7890`}
+											value={contact.phone}
+											onChange={this.props.handleContactNameChange(i)}
+											autoComplete='off'
+										/>
+										<input
+											className='four wide field'
+											type='email'
+											name='email'
+											placeholder={`Email for contact #${i + 1}`}
+											value={contact.email}
+											onChange={this.props.handleContactNameChange(i)}
+											autoComplete='off'
 										/>
 										{i === 0 ? null : (
 											<button
@@ -65,6 +86,7 @@ export default class Form extends Component {
 							type='button'
 							className='ui labeled icon button primary'
 							onClick={this.props.addContact}
+							style={{ marginTop: '12px' }}
 						>
 							Add Contact
 							<i className='add icon' />

@@ -8,10 +8,9 @@ export default class NewTarget extends Component {
 		newTarget: {
 			status: '',
 			companyInfo: '',
-			contact: [{ name: '' }],
+			contact: [{ name: '', phone: '', email: '' }],
 			financialPerformance: ''
 		},
-		name: '',
 		redirectToTargetList: false
 	}
 
@@ -26,7 +25,7 @@ export default class NewTarget extends Component {
 	handleContactNameChange = i => e => {
 		const newContact = this.state.newTarget.contact.map((contact, ci) => {
 			if (i !== ci) return contact
-			return { ...contact, name: e.target.value }
+			return { ...contact, [e.target.name]: e.target.value }
 		})
 		const copiedNewTarget = { ...this.state.newTarget }
 		copiedNewTarget.contact = newContact
@@ -37,7 +36,7 @@ export default class NewTarget extends Component {
 	handleAddContact = () => {
 		const copiedNewTarget = { ...this.state.newTarget }
 		copiedNewTarget.contact = this.state.newTarget.contact.concat([
-			{ name: '' }
+			{ name: '', phone: '' }
 		])
 		this.setState({
 			newTarget: copiedNewTarget

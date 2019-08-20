@@ -50,7 +50,11 @@ export default class ShowTarget extends Component {
 	// function to render content on the modal
 	renderContent = () => {
 		const contacts = this.state.contacts.map(contact => {
-			return <li>{contact.name}</li>
+			return (
+				<li>
+					{contact.name} - {contact.phone} - {contact.email}
+				</li>
+			)
 		})
 		return (
 			<>
