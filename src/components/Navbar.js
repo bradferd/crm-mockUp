@@ -23,6 +23,7 @@ export default class Navbar extends Component {
 					</NavLink>
 					<div className='right menu'>
 						<NavLink
+							exact={true}
 							activeClassName='ui active item'
 							to='/targets'
 							className='ui item'
