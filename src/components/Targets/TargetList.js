@@ -5,7 +5,8 @@ import Targets from '../../apis/targets'
 export default class TargetList extends Component {
 	state = {
 		targets: [],
-		showNewTargetForm: false
+		showNewTargetForm: false,
+		sorted: false
 	}
 
 	componentDidMount() {
@@ -35,7 +36,13 @@ export default class TargetList extends Component {
 	onSort = (e, sortKey) => {
 		const data = this.state.targets
 		data.sort((a, b) => a[sortKey].localeCompare(b[sortKey]))
-		this.setState({ newTarget: data })
+		this.setState({ newTarget: data, sorted: true })
+	}
+
+	unSort = (e, sortKey) => {
+		const data = this.state.targets
+		data.sort((a, b) => b[sortKey].localeCompare(a[sortKey]))
+		this.setState({ newTarget: data, sorted: false })
 	}
 
 	render() {
@@ -60,7 +67,11 @@ export default class TargetList extends Component {
 						{target.financialPerformance}
 					</td>
 					<td data-label='contacts'>
-						{target.contact.map(contact => `${contact.name} `)}
+						<ul>
+							{target.contact.map(contact => (
+								<li>{contact.name}</li>
+							))}
+						</ul>
 					</td>
 				</tr>
 			)
@@ -72,10 +83,47 @@ export default class TargetList extends Component {
 					<thead>
 						<tr>
 							<th />
-							<th onClick={e => this.onSort(e, 'companyInfo')}>Company Info</th>
-							<th onClick={e => this.onSort(e, 'status')}>Status</th>
-							<th onClick={e => this.onSort(e, 'financialPerformance')}>
-								Financial Peformance
+							<th>
+								Company Info{' '}
+								{this.state.sorted ? (
+									<i
+										onClick={e => this.unSort(e, 'companyInfo')}
+										className='sort alphabet up icon'
+									/>
+								) : (
+									<i
+										onClick={e => this.onSort(e, 'companyInfo')}
+										className='sort alphabet down icon'
+									/>
+								)}
+							</th>
+							<th>
+								Status{' '}
+								{this.state.sorted ? (
+									<i
+										onClick={e => this.unSort(e, 'status')}
+										className='sort alphabet up icon'
+									/>
+								) : (
+									<i
+										onClick={e => this.onSort(e, 'status')}
+										className='sort alphabet down icon'
+									/>
+								)}
+							</th>
+							<th>
+								Peformance
+								{this.state.sorted ? (
+									<i
+										onClick={e => this.unSort(e, 'financialPerformance')}
+										className='sort alphabet up icon'
+									/>
+								) : (
+									<i
+										onClick={e => this.onSort(e, 'financialPerformance')}
+										className='sort alphabet down icon'
+									/>
+								)}
 							</th>
 							<th>Contacts</th>
 						</tr>

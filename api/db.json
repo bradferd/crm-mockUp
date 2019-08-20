@@ -23,9 +23,6 @@
         },
         {
           "name": "Brad"
-        },
-        {
-          "name": "Phil"
         }
       ],
       "financialPerformance": "They doin great ok",
@@ -33,17 +30,45 @@
     },
     {
       "status": "Pending Approval",
-      "companyInfo": "IBM",
+      "companyInfo": "Test Company",
       "contact": [
         {
-          "name": "Danny Osman"
+          "name": "John Doe test@test.com"
         },
         {
-          "name": "Some Dude"
+          "name": "Jane Doe test@test.com"
+        },
+        {
+          "name": "Bob Doe test@test.com"
         }
       ],
-      "financialPerformance": "Legit",
-      "id": 3
+      "financialPerformance": "Great!",
+      "id": 4
+    },
+    {
+      "status": "Researching",
+      "companyInfo": "WeMakeWebsites LLC",
+      "contact": [
+        {
+          "name": "Bradford Bailey (404)557-8515"
+        },
+        {
+          "name": "Yvette Piedra yvette.piedra@gmail.com"
+        }
+      ],
+      "financialPerformance": "They are growing fast!",
+      "id": 5
+    },
+    {
+      "status": "Researching",
+      "companyInfo": "Hello, my name is Brad",
+      "contact": [
+        {
+          "name": "Bradford C Bailey (404) 557-8515"
+        }
+      ],
+      "financialPerformance": "He got fat pockets",
+      "id": 6
     }
   ]
 }

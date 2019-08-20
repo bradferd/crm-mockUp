@@ -1,15 +1,33 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default class Navbar extends Component {
+	handleActiveLink = e => {
+		let link = document.querySelector('active')
+		if (link !== null) {
+			link.classList.remove('active')
+		}
+		e.target.className = 'active'
+	}
 	render() {
 		return (
 			<div className='ui secondary pointing menu'>
-				<a className='active item'>Home</a>
+				<NavLink
+					exact={true}
+					to='/'
+					activeClassName='ui active item'
+					className='ui item'
+				>
+					Home
+				</NavLink>
 				<div classNane='menu'>
-					<Link to='/targets' className='ui item'>
+					<NavLink
+						activeClassName='ui active item'
+						to='/targets'
+						className='ui item'
+					>
 						Target List
-					</Link>
+					</NavLink>
 				</div>
 			</div>
 		)
