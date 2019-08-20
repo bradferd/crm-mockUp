@@ -6,12 +6,15 @@ import NewTarget from './components/Forms/NewTarget'
 import ShowTarget from './components/Targets/ShowTarget'
 import Navbar from './components/Navbar'
 import Landing from './components/Landing'
+import createHistory from 'history/createBrowserHistory'
+
+const history = createHistory()
 
 function App() {
 	return (
 		<div className='App'>
-			<Router>
-				<Navbar />
+			<Router history={history}>
+				<Navbar history={history} />
 				<Switch>
 					<Route exact path='/' component={Landing} />
 					<Route exact path='/targets' component={TargetList} />

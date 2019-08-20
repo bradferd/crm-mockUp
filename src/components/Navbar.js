@@ -2,13 +2,6 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
 export default class Navbar extends Component {
-	handleActiveLink = e => {
-		let link = document.querySelector('active')
-		if (link !== null) {
-			link.classList.remove('active')
-		}
-		e.target.className = 'active'
-	}
 	render() {
 		return (
 			<div className='ui inverted segment' style={{ margin: '-10px' }}>
@@ -20,6 +13,12 @@ export default class Navbar extends Component {
 						className='ui item'
 					>
 						Home
+					</NavLink>
+					<NavLink
+						className='ui item'
+						onClick={() => this.props.history.goBack()}
+					>
+						Back
 					</NavLink>
 					<div className='right menu'>
 						<NavLink
