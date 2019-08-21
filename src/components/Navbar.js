@@ -14,12 +14,6 @@ export default class Navbar extends Component {
 					>
 						Home
 					</NavLink>
-					<NavLink
-						className='ui item'
-						onClick={() => this.props.history.goBack()}
-					>
-						Back
-					</NavLink>
 					<div className='right menu'>
 						<NavLink
 							exact={true}

@@ -64,7 +64,7 @@ export default class TargetList extends Component {
 						{target.status}
 					</td>
 					<td data-label='financialPerformance'>
-						{target.financialPerformance}
+						<p>{target.financialPerformance}</p>
 					</td>
 					<td data-label='contacts'>
 						<ul>
@@ -83,7 +83,7 @@ export default class TargetList extends Component {
 			>
 				<h2 className='header'>Target List</h2>
 				<table className='ui compact celled definition table'>
-					<thead>
+					<thead className='full width'>
 						<tr>
 							<th />
 							<th>

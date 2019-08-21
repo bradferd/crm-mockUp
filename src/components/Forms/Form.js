@@ -92,19 +92,18 @@ export default class Form extends Component {
 							<i className='add icon' />
 						</button>
 					</div>
-					<div className='field'>
+					<div className='field inline'>
 						<label htmlFor='target-financialPerformance'>
 							Financial Performance
 						</label>
-						<textarea
-							rows='2'
+						<input
 							type='text'
 							onChange={this.props.handleInputChange}
 							id='target-financialPerformance'
 							name='financialPerformance'
-							value={this.props.financialPerformance}
+							value={this.props.financialPerformance.q1}
 							autoComplete='off'
-							placeholder='Company financial performance'
+							placeholder='Compnany Financial Performance'
 							required
 						/>
 					</div>

@@ -1,53 +1,17 @@
 {
   "targets": [
     {
-      "status": "Approved",
-      "companyInfo": "Virtucom, Inc. an education technology company",
+      "status": "Researching",
+      "companyInfo": "Virtucom",
       "contact": [
         {
           "name": "Bradford C Bailey",
-          "phone": "4045578515",
+          "phone": "404-557-8515",
           "email": "bbailey921@gmail.com"
-        },
-        {
-          "name": "Annie Jane",
-          "phone": "1234567890",
-          "email": "test@test.com"
         }
       ],
-      "financialPerformance": "They're growing rapidly",
+      "financialPerformance": "They doin good",
       "id": 1
-    },
-    {
-      "status": "Approved",
-      "companyInfo": "Yvette's Dog Sitting",
-      "contact": [
-        {
-          "name": "Yvette",
-          "phone": "6789839031",
-          "email": "yvette.piedra@gmail.com"
-        }
-      ],
-      "financialPerformance": "Through the ruff, ruff",
-      "id": 2
-    },
-    {
-      "status": "Pending Approval",
-      "companyInfo": "Yvette's Dog Smelling",
-      "contact": [
-        {
-          "name": "Yvette Piedra",
-          "phone": "123-456-7890",
-          "email": "test@test.com"
-        },
-        {
-          "name": "Brad Bailey",
-          "phone": "404-558-8515",
-          "email": "lol@lol.com"
-        }
-      ],
-      "financialPerformance": "We are so awesome",
-      "id": 3
     }
   ]
 }
