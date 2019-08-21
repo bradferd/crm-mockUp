@@ -92,7 +92,7 @@ export default class Form extends Component {
 							<i className='add icon' />
 						</button>
 					</div>
-					<div className='field inline'>
+					<div className='field'>
 						<label htmlFor='target-financialPerformance'>
 							Financial Performance
 						</label>

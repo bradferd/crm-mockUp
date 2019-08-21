@@ -45,6 +45,14 @@ export default class TargetList extends Component {
 		this.setState({ newTarget: data, sorted: false })
 	}
 
+	filterByStatus = async status => {
+		const res = await Targets.get('/targets')
+		const filteredTargets = res.data.filter(target =>
+			target.status.includes(status)
+		)
+		this.setState({ targets: filteredTargets })
+	}
+
 	render() {
 		// mapping over targets to make table data
 		let targets = this.state.targets.map(target => {
@@ -101,33 +109,23 @@ export default class TargetList extends Component {
 								)}
 							</th>
 							<th>
-								Status{' '}
-								{this.state.sorted ? (
-									<i
-										onClick={e => this.unSort(e, 'status')}
-										className='sort alphabet up icon'
-									/>
-								) : (
-									<i
-										onClick={e => this.onSort(e, 'status')}
-										className='sort alphabet down icon'
-									/>
-								)}
+								Status
+								<br />
+								Showing:
+								<div className='field'>
+									<select
+										className='ui dropdown'
+										onChange={e => this.filterByStatus(e.target.value)}
+									>
+										<option value=''>All</option>
+										<option value='Approved'>Approved</option>
+										<option value='Denied'>Denied</option>
+										<option value='Researching'>Researching</option>
+										<option value='Pending Approval'>Pending Apporoval</option>
+									</select>
+								</div>
 							</th>
-							<th>
-								Peformance
-								{this.state.sorted ? (
-									<i
-										onClick={e => this.unSort(e, 'financialPerformance')}
-										className='sort alphabet up icon'
-									/>
-								) : (
-									<i
-										onClick={e => this.onSort(e, 'financialPerformance')}
-										className='sort alphabet down icon'
-									/>
-								)}
-							</th>
+							<th>Peformance</th>
 							<th>Contacts</th>
 						</tr>
 					</thead>
