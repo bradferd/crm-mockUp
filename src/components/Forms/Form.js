@@ -35,7 +35,7 @@ export default class Form extends Component {
 						/>
 					</div>
 					<div className='ui field'>
-						<label htmlFor='contact-name'>Contacts</label>
+						<label htmlFor='contact'>Contacts</label>
 						{this.props.contacts.map((contact, i) => {
 							return (
 								<>
@@ -101,9 +101,9 @@ export default class Form extends Component {
 							onChange={this.props.handleInputChange}
 							id='target-financialPerformance'
 							name='financialPerformance'
-							value={this.props.financialPerformance.q1}
+							value={this.props.financialPerformance}
 							autoComplete='off'
-							placeholder='Compnany Financial Performance'
+							placeholder='Company Financial Performance'
 							required
 						/>
 					</div>

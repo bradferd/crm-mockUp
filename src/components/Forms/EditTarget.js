@@ -32,7 +32,7 @@ export default class EditTarget extends Component {
 	handleContactNameChange = i => e => {
 		const newContact = this.state.target.contact.map((contact, ci) => {
 			if (i !== ci) return contact
-			return { ...contact, name: e.target.value }
+			return { ...contact, [e.target.name]: e.target.value }
 		})
 		const copiedTarget = { ...this.state.target }
 		copiedTarget.contact = newContact
@@ -42,7 +42,9 @@ export default class EditTarget extends Component {
 	// function to add additional contacts to contact form
 	handleAddContact = () => {
 		const copiedTarget = { ...this.state.target }
-		copiedTarget.contact = this.state.target.contact.concat([{ name: '' }])
+		copiedTarget.contact = this.state.target.contact.concat([
+			{ name: '', phone: '', email: '' }
+		])
 		this.setState({
 			target: copiedTarget
 		})

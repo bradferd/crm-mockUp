@@ -108,21 +108,23 @@ export default class TargetList extends Component {
 									/>
 								)}
 							</th>
-							<th>
+							<th className='six wide row'>
 								Status
-								<br />
-								Showing:
-								<div className='field'>
-									<select
-										className='ui dropdown'
-										onChange={e => this.filterByStatus(e.target.value)}
-									>
-										<option value=''>All</option>
-										<option value='Approved'>Approved</option>
-										<option value='Denied'>Denied</option>
-										<option value='Researching'>Researching</option>
-										<option value='Pending Approval'>Pending Apporoval</option>
-									</select>
+								<div className='ui form right floated'>
+									<div className='field eight wide'>
+										<select
+											className='ui dropdown'
+											onChange={e => this.filterByStatus(e.target.value)}
+										>
+											<option value=''>All</option>
+											<option value='Approved'>Approved</option>
+											<option value='Denied'>Denied</option>
+											<option value='Researching'>Researching</option>
+											<option value='Pending Approval'>
+												Pending Apporoval
+											</option>
+										</select>
+									</div>
 								</div>
 							</th>
 							<th>Peformance</th>

@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "status": "Researching",
+      "status": "Pending Approval",
       "companyInfo": "Virtucom",
       "contact": [
         {
@@ -10,21 +10,70 @@
           "email": "bbailey921@gmail.com"
         }
       ],
-      "financialPerformance": "They doin good",
+      "financialPerformance": "Up 10% in last quarter",
       "id": 1
     },
     {
-      "status": "Pending Approval",
+      "status": "Approved",
       "companyInfo": "IBM",
       "contact": [
         {
           "name": "John Doe",
           "phone": "404-888-3456",
           "email": "test@test.com"
+        },
+        {
+          "name": "Jane Doe",
+          "phone": "404-123-7865",
+          "email": "test@gmail.com"
         }
       ],
-      "financialPerformance": "Up 5% over last year",
+      "financialPerformance": "Great",
       "id": 2
+    },
+    {
+      "status": "Approved",
+      "companyInfo": "A company inc.",
+      "contact": [
+        {
+          "name": "Jane Doe",
+          "phone": "404-404-4040",
+          "email": "test@test.com"
+        },
+        {
+          "name": "Reed Miller",
+          "phone": "123-404-5555",
+          "email": "gmail@email.com"
+        }
+      ],
+      "financialPerformance": "Through the roof",
+      "id": 3
+    },
+    {
+      "status": "Denied",
+      "companyInfo": "Burger King",
+      "contact": [
+        {
+          "name": "Greg Frank",
+          "phone": "555-909-4134",
+          "email": "test@test.com"
+        }
+      ],
+      "financialPerformance": "Down 10% over the last year",
+      "id": 4
+    },
+    {
+      "status": "Researching",
+      "companyInfo": "The Home Depot",
+      "contact": [
+        {
+          "name": "Yvette Piedra",
+          "phone": "125-654-8756",
+          "email": "yvette@piedra.com"
+        }
+      ],
+      "financialPerformance": "Down 2% in last quarter",
+      "id": 5
     }
   ]
 }

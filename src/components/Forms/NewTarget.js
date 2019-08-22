@@ -36,7 +36,7 @@ export default class NewTarget extends Component {
 	handleAddContact = () => {
 		const copiedNewTarget = { ...this.state.newTarget }
 		copiedNewTarget.contact = this.state.newTarget.contact.concat([
-			{ name: '', phone: '' }
+			{ name: '', phone: '', email: '' }
 		])
 		this.setState({
 			newTarget: copiedNewTarget
